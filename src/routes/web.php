@@ -24,4 +24,4 @@ Route::get('/email/verify', [VerificationController::class, 'show'])->name('veri
 Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
 Route::get('/email/verification-notification', [VerificationController::class, 'resend'])->name('verification.send');
 
-Route::get('/mypage', [App\Http\Controllers\MyPageController::class, 'show'])->name('user.mypage');
+Route::get('/mypage', [MyPageController::class, 'show'])->name('user.mypage');
