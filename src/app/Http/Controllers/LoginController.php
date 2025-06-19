@@ -15,13 +15,13 @@ class LoginController extends Controller
     public function login(UserLoginRequest $request)
     {
         Auth::guard('users')->attempt($request->only('email', 'password'));
-        return redirect('/mypage');
+        return redirect()->route('user.mypage');
     }
 
     public function logout()
     {
         Auth::guard('users')->logout();
 
-        return redirect('/login');
+        return redirect()->route('login.show');
     }
 }
