@@ -42,29 +42,34 @@
             @endauth
         </ul>
     </nav>
-    <main class="content">
-        @yield('content')
-    </main>
+    <div id="js-main-container" class="main-container">
+        <main class="content">
+            @yield('content')
+        </main>
+    </div>
     <script>
         const ham = document.querySelector('#js-hamburger');
         const nav = document.querySelector('#js-nav');
         const button = ham.querySelector('.hamburger');
-        const main = document.querySelector('main');
-        const body = document.querySelector('body');
+        const mainContainer = document.querySelector('#js-main-container');
         const logo = document.querySelector('.header__text');
+        const body = document.body; 
 
         ham.addEventListener('click', function () {
             const navIsHidden = nav.hasAttribute('hidden');
+
             if (navIsHidden) {
                 nav.removeAttribute('hidden');
-                main.style.display = 'none';
-                logo.style.display = 'none';
+                mainContainer.classList.add('is-hidden');
+                mainContainer.classList.add('is-menu-open');
                 body.classList.add('is-menu-open');
+                logo.style.display = 'none';
             } else {
                 nav.setAttribute('hidden', '');
-                main.style.display = '';
-                logo.style.display = '';
+                mainContainer.classList.remove('is-hidden');
+                mainContainer.classList.remove('is-menu-open');
                 body.classList.remove('is-menu-open');
+                logo.style.display = '';
             }
             button.classList.toggle('active');
         });

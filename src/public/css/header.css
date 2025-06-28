@@ -1,6 +1,9 @@
 .page {
     background-color: #ECECED;
-    transition: background-color 0.3s ease;
+}
+
+.page.is-menu-open {
+    background-color: white;
 }
 
 .header {
@@ -59,8 +62,16 @@
     width: 30%;
 }
 
-.page.is-menu-open {
+.main-container {
+    transition: background-color 0.3s ease;
+}
+
+.main-container.is-menu-open {
     background-color: white;
+}
+
+.main-container.is-hidden main {
+    display: none;
 }
 
 .hamburger.active span:nth-child(1) {
