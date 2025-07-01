@@ -12,7 +12,7 @@
 <body class="page">
     <header class="header">
         <div class="header__inner">
-            <div class="header__icon" id="menu-toggle">
+            <div class="header__icon" id="js-hamburger">
                 <button class="hamburger">
                     <span class="hamburger_bar"></span>
                     <span class="hamburger_bar"></span>
@@ -23,30 +23,55 @@
                 Rese
             </div>
         </div>
-        <nav id="menu" class="menu" hidden>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/register">Registration</a></li>
-                <li><a href="/login">Login</a></li>
-            </ul>
-        </nav>
     </header>
-    <main class="content">
-        @yield('content')
-    </main>
+    <nav id="js-nav" class="header__nav" hidden>
+        <ul class="nav__items">
+            <li class="nav__items--item"><a href="/">Home</a></li>
+            @guest
+                <li class="nav__items--item"><a href="/register">Registration</a></li>
+                <li class="nav__items--item"><a href="/login">Login</a></li>
+            @endguest
+            @auth
+                <li class="nav__items--item"><a href="/mypage">MyPage</a></li>
+                <li class="nav__items--item">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="logout">Logout</button>
+                    </form>
+                </li>
+            @endauth
+        </ul>
+    </nav>
+    <div id="js-main-container" class="main-container">
+        <main class="content">
+            @yield('content')
+        </main>
+    </div>
     <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('menu');
+        const ham = document.querySelector('#js-hamburger');
+        const nav = document.querySelector('#js-nav');
+        const button = ham.querySelector('.hamburger');
+        const mainContainer = document.querySelector('#js-main-container');
+        const logo = document.querySelector('.header__text');
+        const body = document.body; 
 
-        menuToggle.addEventListener('click', () => {
-            const isHidden = menu.hasAttribute('hidden');
-            if (isHidden) {
-                menu.removeAttribute('hidden');
-                menu.classList.add('show');
+        ham.addEventListener('click', function () {
+            const navIsHidden = nav.hasAttribute('hidden');
+
+            if (navIsHidden) {
+                nav.removeAttribute('hidden');
+                mainContainer.classList.add('is-hidden');
+                mainContainer.classList.add('is-menu-open');
+                body.classList.add('is-menu-open');
+                logo.style.display = 'none';
             } else {
-                menu.setAttribute('hidden', '');
-                menu.classList.remove('show');
+                nav.setAttribute('hidden', '');
+                mainContainer.classList.remove('is-hidden');
+                mainContainer.classList.remove('is-menu-open');
+                body.classList.remove('is-menu-open');
+                logo.style.display = '';
             }
+            button.classList.toggle('active');
         });
     </script>
 </body>
