@@ -47,9 +47,11 @@
             @endauth
         </ul>
     </nav>
-    <main class="content">
-        @yield('content')
-    </main>
+    <div id="js-main-container" class="main-container">
+        <main class="content">
+            @yield('content')
+        </main>
+    </div>
     <script>
         const ham = document.querySelector('#js-hamburger');
         const nav = document.querySelector('#js-nav');
@@ -61,6 +63,7 @@
 
         ham.addEventListener('click', function () {
             const navIsHidden = nav.hasAttribute('hidden');
+
             if (navIsHidden) {
                 nav.removeAttribute('hidden');
                 mainContainer.classList.add('is-hidden');
@@ -75,6 +78,7 @@
                 logo.style.display = '';
                 search.style.display = '';
                 body.classList.remove('is-menu-open');
+                logo.style.display = '';
             }
             button.classList.toggle('active');
         });
