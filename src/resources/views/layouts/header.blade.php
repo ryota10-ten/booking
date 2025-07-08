@@ -54,22 +54,24 @@
         const ham = document.querySelector('#js-hamburger');
         const nav = document.querySelector('#js-nav');
         const button = ham.querySelector('.hamburger');
-        const main = document.querySelector('main');
-        const body = document.querySelector('body');
+        const mainContainer = document.querySelector('#js-main-container');
         const logo = document.querySelector('.header__text');
         const search = document.querySelector('.header__search');
+        const body = document.body;
 
         ham.addEventListener('click', function () {
             const navIsHidden = nav.hasAttribute('hidden');
             if (navIsHidden) {
                 nav.removeAttribute('hidden');
-                main.style.display = 'none';
+                mainContainer.classList.add('is-hidden');
+                mainContainer.classList.add('is-menu-open');
+                body.classList.add('is-menu-open');
                 logo.style.display = 'none';
                 search.style.display = 'none';
-                body.classList.add('is-menu-open');
             } else {
                 nav.setAttribute('hidden', '');
-                main.style.display = '';
+                mainContainer.classList.remove('is-hidden');
+                mainContainer.classList.remove('is-menu-open');
                 logo.style.display = '';
                 search.style.display = '';
                 body.classList.remove('is-menu-open');
