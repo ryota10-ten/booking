@@ -12,15 +12,20 @@
 <body class="page">
     <header class="header">
         <div class="header__inner">
-            <div class="header__icon" id="js-hamburger">
-                <button class="hamburger">
-                    <span class="hamburger_bar"></span>
-                    <span class="hamburger_bar"></span>
-                    <span class="hamburger_bar"></span>
-                </button>
+            <div class=header__menu>
+                <div class="header__icon" id="js-hamburger">
+                    <button class="hamburger">
+                        <span class="hamburger_bar"></span>
+                        <span class="hamburger_bar"></span>
+                        <span class="hamburger_bar"></span>
+                    </button>
+                </div>
+                <div class="header__text">
+                    Rese
+                </div>
             </div>
-            <div class="header__text">
-                Rese
+            <div class="header__search">
+                @yield('search')
             </div>
         </div>
     </header>
@@ -52,6 +57,7 @@
         const main = document.querySelector('main');
         const body = document.querySelector('body');
         const logo = document.querySelector('.header__text');
+        const search = document.querySelector('.header__search');
 
         ham.addEventListener('click', function () {
             const navIsHidden = nav.hasAttribute('hidden');
@@ -59,11 +65,13 @@
                 nav.removeAttribute('hidden');
                 main.style.display = 'none';
                 logo.style.display = 'none';
+                search.style.display = 'none';
                 body.classList.add('is-menu-open');
             } else {
                 nav.setAttribute('hidden', '');
                 main.style.display = '';
                 logo.style.display = '';
+                search.style.display = '';
                 body.classList.remove('is-menu-open');
             }
             button.classList.toggle('active');
