@@ -45,7 +45,7 @@
     @foreach($shops as $shop)
         <div class="shop__data">
             <div class="shop__img">
-                <img src="{{ \Storage::url($shop->img_url) }}" alt="仙人" >
+                <img src="{{ asset('storage/' . $shop->img_url) }}" alt="{{$shop->name}}" >
             </div>
             <div class="shop__name">
                 {{$shop->name}}
