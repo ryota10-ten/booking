@@ -8,9 +8,9 @@
         <select name="area_id" class="select__area" id="area">
             <option value="" selected>All area</option>
             @foreach($areas as $area)
-            <option value="{{ $area->id }}" {{ request('area_id') == $area->id ? 'selected' : '' }}>
-                {{$area->area}}
-            </option>
+                <option value="{{ $area->id }}" {{ request('area_id') == $area->id ? 'selected' : '' }}>
+                    {{$area->area}}
+                </option>
             @endforeach
         </select>
         <label for="area" class="label">
@@ -21,9 +21,9 @@
         <select name="genre_id" class="select__genre" id="genre">
             <option value="" selected>All genre</option>
             @foreach($genres as $genre)
-            <option value="{{ $genre->id }}" {{ request('genre_id') == $genre->id ? 'selected' : '' }}>
-                {{$genre->genre}}
-            </option>
+                <option value="{{ $genre->id }}" {{ request('genre_id') == $genre->id ? 'selected' : '' }}>
+                    {{$genre->genre}}
+                </option>
             @endforeach
         </select>
         <label for="genre" class="label">
@@ -43,38 +43,38 @@
 @section('content')
 <div class="content__home" id="search-results">
     @foreach($shops as $shop)
-    <div class="shop__data">
-        <div class="shop__img">
-            <img src="{{ \Storage::url($shop->img_url) }}" alt="仙人" >
-        </div>
-        <div class="shop__name">
-            {{$shop->name}}
-        </div>
-        <div class="shop__detail">
-            <span class="shop__area">
-                #{{$shop->area->area}}
-            </span>
-            <span class="shop__genre">
-                #{{$shop->genre->genre}}
-            </span>
-        </div>
-        <div class="shop__button">
-            <div class="button__detail">
-                <a href="/detail/{{$shop->id}}">詳しく見る</a>
+        <div class="shop__data">
+            <div class="shop__img">
+                <img src="{{ \Storage::url($shop->img_url) }}" alt="仙人" >
             </div>
-            <div class="button__favorite">
-                <form method="post" action="{{ route('favorite.toggle') }}">
-                    @csrf
-                    <input type="hidden" name="restaurant_id" value="{{ $shop->id }}">
-                    <button class="favorite">
-                        <span class="material-icons {{ auth()->user() && auth()->user()->hasFavorited($shop->id) ? 'favorite-icon--on' : 'favorite-icon--off' }}">
-                            favorite
-                        </span>
-                    </button>
-                </form>
+            <div class="shop__name">
+                {{$shop->name}}
+            </div>
+            <div class="shop__detail">
+                <span class="shop__area">
+                    #{{$shop->area->area}}
+                </span>
+                <span class="shop__genre">
+                    #{{$shop->genre->genre}}
+                </span>
+            </div>
+            <div class="shop__button">
+                <div class="button__detail">
+                    <a href="/detail/{{$shop->id}}">詳しく見る</a>
+                </div>
+                <div class="button__favorite">
+                    <form method="post" action="{{ route('favorite.toggle') }}">
+                        @csrf
+                        <input type="hidden" name="restaurant_id" value="{{ $shop->id }}">
+                        <button class="favorite">
+                            <span class="material-icons {{ auth()->user() && auth()->user()->hasFavorited($shop->id) ? 'favorite-icon--on' : 'favorite-icon--off' }}">
+                                favorite
+                            </span>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
     @endforeach
 </div>
 <script>
