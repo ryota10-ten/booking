@@ -12,15 +12,20 @@
 <body class="page">
     <header class="header">
         <div class="header__inner">
-            <div class="header__icon" id="js-hamburger">
-                <button class="hamburger">
-                    <span class="hamburger_bar"></span>
-                    <span class="hamburger_bar"></span>
-                    <span class="hamburger_bar"></span>
-                </button>
+            <div class=header__menu>
+                <div class="header__icon" id="js-hamburger">
+                    <button class="hamburger">
+                        <span class="hamburger_bar"></span>
+                        <span class="hamburger_bar"></span>
+                        <span class="hamburger_bar"></span>
+                    </button>
+                </div>
+                <div class="header__text">
+                    Rese
+                </div>
             </div>
-            <div class="header__text">
-                Rese
+            <div class="header__search">
+                @yield('search')
             </div>
         </div>
     </header>
@@ -53,7 +58,8 @@
         const button = ham.querySelector('.hamburger');
         const mainContainer = document.querySelector('#js-main-container');
         const logo = document.querySelector('.header__text');
-        const body = document.body; 
+        const search = document.querySelector('.header__search');
+        const body = document.body;
 
         ham.addEventListener('click', function () {
             const navIsHidden = nav.hasAttribute('hidden');
@@ -64,10 +70,13 @@
                 mainContainer.classList.add('is-menu-open');
                 body.classList.add('is-menu-open');
                 logo.style.display = 'none';
+                search.style.display = 'none';
             } else {
                 nav.setAttribute('hidden', '');
                 mainContainer.classList.remove('is-hidden');
                 mainContainer.classList.remove('is-menu-open');
+                logo.style.display = '';
+                search.style.display = '';
                 body.classList.remove('is-menu-open');
                 logo.style.display = '';
             }
