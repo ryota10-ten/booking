@@ -8,7 +8,6 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\MyPageController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
