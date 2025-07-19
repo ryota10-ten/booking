@@ -8,6 +8,7 @@ use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
 
+
 class HomeController extends Controller
 {
     public function show()
@@ -29,4 +30,10 @@ class HomeController extends Controller
         $genres = Genre::all();
         return view('home',compact('shops','areas','genres'));
     }
+
+    public function done()
+    {
+        return view('booking_done');
+    }
+
 }

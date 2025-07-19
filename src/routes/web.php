@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\MyPageController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\VerificationController;
 
 
 /*
@@ -22,6 +23,7 @@ use App\Http\Controllers\MyPageController;
 
 Route::get('/',[HomeController::class,'show'])->name('home');
 Route::get('/search',[HomeController::class,'search'])->name('search');
+Route::get('/thanks',[HomeController::class, 'done'])->name('booking.done');
 
 Route::post('/favorite/toggle', [FavoriteController::class, 'toggle'])->name('favorite.toggle');
 
@@ -37,3 +39,6 @@ Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'
 Route::get('/email/verification-notification', [VerificationController::class, 'resend'])->name('verification.send');
 
 Route::get('/mypage', [MyPageController::class, 'show'])->name('user.mypage');
+
+Route::get('/detail/{id}',[ShopController::class, 'show'])->name('shop.detail');
+Route::post('/booking/form',[ShopController::class, 'form'])->name('booking.store');
