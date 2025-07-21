@@ -1,0 +1,171 @@
+.mypage__header {
+    width: 100%;
+    margin: 0% 8% 3%;
+}
+
+.table__header {
+    width: 100%;
+    empty-cells: hide;
+    text-align: left;
+}
+
+.header__name {
+    padding-bottom: 2%;
+    font-size: larger;
+}
+
+.header__booking {
+    width: 40%;
+    font-size: large;
+}
+
+.header__favorite {
+    width: 60%;
+    font-size: large;
+}
+
+.mypage__content {
+    width: 100%;
+    margin: 0 8%;
+    display: flex;
+}
+
+.booking__content {
+    width: 40%;
+    margin-right: 5%;
+}
+
+.booking__data {
+    background-color: #385EF4;
+    border-radius: 2%;
+    color: white;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.booking__header--row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.booking__header--row {
+    padding: 3% 0;
+}
+
+.delete__booking {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.material-icons {
+    vertical-align: middle;
+    text-align: right;
+    color: white;
+}
+
+
+.booking__detail {
+    text-align: left;
+    margin: 5% 0;
+}
+
+.booking__header {
+    font-weight: normal;
+    width: 30%;
+}
+
+.no-booking-message {
+    text-align: center;
+    font-weight: bold;
+}
+
+.favorite__content {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+}
+
+.shop__data {
+    width: 35%;
+    background-color: white;
+    border-radius: 3%;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 0 gray;
+    margin: 0px 10px 5px 0;
+    height: 300px;
+}
+
+@media screen and (max-width: 768px) {
+    .shop__data {
+        width: 35%;
+        background-color: white;
+        border-radius: 3%;
+        border: 1px solid gray;
+        box-shadow: 1px 1px 0 gray;
+        margin: 0px 10px 5px 0;
+        height: 220px;
+    }
+}
+
+.shop__img img {
+    width: 100%;
+    border-radius: 3% 3% 0 0;
+    height: 30%;
+}
+
+.shop__name {
+    font-weight: bold;
+    margin: 3% 0 1% 5%;
+}
+
+.shop__detail {
+    font-size: small;
+    margin: 0 0 0 5%;
+}
+
+.shop__button {
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
+}
+
+.button__detail {
+    text-align: center;
+    background-color: #385EF4;
+    width: 50%;
+    border: 1px solid #385EF4;
+    border-radius: 3%;
+    cursor: pointer;
+}
+
+.button__detail a {
+    text-decoration: none;
+    border: none;
+    color: white;
+    margin: 1%;
+    font-size: small;
+}
+
+.favorite {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+}
+
+.favorite-icon--on {
+    color: red;
+}
+
+.favorite-icon--off {
+    color: gray;
+}

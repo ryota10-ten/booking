@@ -39,6 +39,7 @@ Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'
 Route::get('/email/verification-notification', [VerificationController::class, 'resend'])->name('verification.send');
 
 Route::get('/mypage', [MyPageController::class, 'show'])->name('user.mypage');
+Route::delete('/booking/delete', [MyPageController::class, 'destroy'])->name('booking.destroy');
 
 Route::get('/detail/{id}',[ShopController::class, 'show'])->name('shop.detail');
 Route::post('/booking/form',[ShopController::class, 'form'])->name('booking.store');
