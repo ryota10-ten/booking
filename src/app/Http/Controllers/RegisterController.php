@@ -26,4 +26,10 @@ class RegisterController extends Controller
         Auth::guard('users')->login($user);
         return redirect()->route('verification.notice');
     }
+
+    public function thanks()
+    {
+        Auth::guard('users')->user();
+        return view('user.register_thanks');
+    }
 }

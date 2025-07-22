@@ -5,11 +5,11 @@
 @section('content')
     <div class="thanks__content">
         <p class="thanks__message">
-            ご予約ありがとうございます
+            会員登録ありがとうございます
         </p>
         <div class="thanks__button">
-            <a href="{{ route('shop.detail', ['id' => $restaurant_id]) }}">
-                戻る
+            <a href="/mypage">
+                ログインする
             </a>
         </div>
     </div>

@@ -31,9 +31,9 @@ class HomeController extends Controller
         return view('home',compact('shops','areas','genres'));
     }
 
-    public function done()
+    public function done($id)
     {
-        return view('booking_done');
+        return view('booking_done', ['restaurant_id' => $id]);
     }
 
 }
