@@ -9,7 +9,6 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\VerificationController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
