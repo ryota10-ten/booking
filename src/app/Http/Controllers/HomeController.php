@@ -7,7 +7,6 @@ use App\Models\Genre;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
-
 class HomeController extends Controller
 {
     public function show()
@@ -34,5 +33,4 @@ class HomeController extends Controller
     {
         return view('booking_done');
     }
-
 }
