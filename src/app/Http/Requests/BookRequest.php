@@ -26,7 +26,7 @@ class BookRequest extends FormRequest
         return [
             'date' => 'required',
             'time' => 'required',
-            'headcount' => 'required|integer',
+            'headcount' => 'required',
         ];
     }
 
@@ -34,7 +34,6 @@ class BookRequest extends FormRequest
     {
         return [
             'date.required' => '予約日を入力してください',
-            'headcount.integer' => '人数を入力してください',
             'time.required' => '予約時間を入力してください',
             'headcount.required' => '人数を入力してください'
         ];
