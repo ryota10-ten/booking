@@ -1,0 +1,139 @@
+.content__detail {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 5%;
+}
+
+.shop__data {
+    width: 50%;
+    margin-right: 5%;
+}
+
+.shop__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.shop__button {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10%;
+    box-shadow: 3px 3px 0 gray;
+    text-align: center;
+    width: 5%;
+    padding: 1%;
+    cursor: pointer;
+}
+
+.shop__button a{
+    text-decoration: none;
+    appearance: none;
+    color: black;
+}
+
+.material-icons {
+    vertical-align: middle;
+}
+
+.shop__name {
+    margin-left: 5%;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.shop__img img {
+    width: 80%;
+}
+
+.shop__tag {
+    margin: 5% 0;
+}
+
+.shop__detail {
+    width: 80%;
+}
+
+.shop__booking {
+    width: 50%;
+    margin: -10% 15% 0 0;
+    background-color: #385EF4;
+    border: 1px solid #385EF4;
+    box-shadow: 1px 1px 1px 1px gray;
+    border-radius: 1%;
+}
+
+.booking__header {
+    color: white;
+    padding: 5% 0% 0% 5%;
+}
+
+.booking__input {
+    padding: 0 5%;
+    width: 100%;
+}
+
+.data__input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.booking__date {
+    width: 40%;
+}
+
+.booking__data {
+    width: 100%;
+    padding-top: 5%;
+}
+
+.form__data {
+    width: 100%;
+}
+
+.table {
+    width: 90%;
+    margin: 5%;
+    background-color: #38aff46b;
+    border-radius: 1%;
+    padding: 5%;
+    color: white;
+}
+
+.form__table {
+    text-align: left;
+    width: 100%;
+}
+
+.table__header {
+    font-weight: lighter;
+    color: white;
+}
+
+.table__data {
+    color: white;
+}
+
+.form__table input[readonly] {
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+.booking__button {
+    width: 100%;
+    background-color: blue;
+    border: none;
+    text-align: center;
+    color: white;
+    padding: 5%;
+    cursor: pointer;
+    font-size: larger;
+    margin-top: 35%;
+}
+
+.error {
+    color: red;
+}

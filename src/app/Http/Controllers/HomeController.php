@@ -28,4 +28,9 @@ class HomeController extends Controller
         $genres = Genre::all();
         return view('home',compact('shops','areas','genres'));
     }
+
+    public function done()
+    {
+        return view('booking_done');
+    }
 }
