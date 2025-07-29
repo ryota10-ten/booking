@@ -71,16 +71,50 @@
     color: white;
 }
 
-
 .booking__detail {
-    text-align: left;
+    display: flex;
+    justify-content: space-around;
     margin: 5% 0;
+}
+
+.table__data {
+    width: 60%;
+}
+
+.booking__detail--table {
+    text-align: left;
+    width: 100%;
 }
 
 .booking__header {
     font-weight: normal;
     width: 30%;
 }
+
+.booking__detail--data {
+    width: 60%;
+}
+
+.booking__detail--link {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.booking__edit {
+    background-color: white;
+    border-radius: 3%;
+    font-size: small;
+    padding: 0 2%;
+    width: 70%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.booking__edit a {
+    text-decoration: none;
+    color: #385EF4;
+}
+
 
 .no-booking-message {
     text-align: center;

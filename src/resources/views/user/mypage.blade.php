@@ -45,40 +45,51 @@
                         </button>
                     </form>
                 </div>
-                <table class="booking__detail">
-                    <tr>
-                        <th class="booking__header">
-                            shop
-                        </th>
-                        <td class="booking__data">
-                            {{ $booking->restaurant->name }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="booking__header">
-                            Date
-                        </th>
-                        <td class="booking__data">
-                            {{ \Carbon\Carbon::parse($booking->book_at)->format('Y年m月d日') }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="booking__header">
-                            Time
-                        </th>
-                        <td class="booking__data">
-                            {{ \Carbon\Carbon::parse($booking->book_at)->format('H時i分') }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="booking__header">
-                            Number
-                        </th>
-                        <td class="booking__data">
-                            {{ $booking->headcount }}人
-                        </td>
-                    </tr>
-                </table>
+                <div class="booking__detail">
+                    <div class="table__data">
+                        <table class="booking__detail--table">
+                            <tr>
+                                <th class="booking__header">
+                                    shop
+                                </th>
+                                <td class="booking__detail--data">
+                                    {{ $booking->restaurant->name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="booking__header">
+                                    Date
+                                </th>
+                                <td class="booking__detail--data">
+                                    {{ \Carbon\Carbon::parse($booking->book_at)->format('Y年m月d日') }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="booking__header">
+                                    Time
+                                </th>
+                                <td class="booking__detail--data">
+                                    {{ \Carbon\Carbon::parse($booking->book_at)->format('H時i分') }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="booking__header">
+                                    Number
+                                </th>
+                                <td class="booking__detail--data">
+                                    {{ $booking->headcount }}人
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="booking__detail--link">
+                        <div class="booking__edit">
+                            <a href="{{ route('booking.detail', ['id' => $booking->id]) }}">
+                                予約の変更・詳細 >
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         @empty
             <p class="no-booking-message">予約がありません。</p>
@@ -103,7 +114,7 @@
                 </div>
                 <div class="shop__button">
                     <div class="button__detail">
-                        <a href="/detail/{{$shop->id}}">詳しく見る</a>
+                        <a href="{{ route('shop.detail', ['id' => $shop->id]) }}">詳しく見る</a>
                     </div>
                     <div class="button__favorite">
                         <form method="post" action="{{ route('favorite.toggle') }}">

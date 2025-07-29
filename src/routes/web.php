@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -8,7 +9,6 @@ use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\VerificationController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +19,6 @@ use App\Http\Controllers\VerificationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/',[HomeController::class,'show'])->name('home');
 Route::get('/search',[HomeController::class,'search'])->name('search');
 Route::get('/done/{id}', [HomeController::class, 'done'])->name('booking.done');
@@ -43,3 +42,7 @@ Route::delete('/booking/delete', [MyPageController::class, 'destroy'])->name('bo
 
 Route::get('/detail/{id}',[ShopController::class, 'show'])->name('shop.detail');
 Route::post('/booking/form',[ShopController::class, 'form'])->name('booking.store');
+
+Route::get('/booking/detail/{id}',[BookController::class, 'show'])->name('booking.detail');
+Route::get('/booking/edit/{id}',[BookController::class, 'edit'])->name('booking.edit');
+Route::post('/booking/edit/{id}', [BookController::class, 'change'])->name('booking.change');

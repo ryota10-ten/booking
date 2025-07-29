@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Validator;
+use Carbon\Carbon;
 
 class BookRequest extends FormRequest
 {
@@ -26,7 +28,7 @@ class BookRequest extends FormRequest
         return [
             'date' => 'required',
             'time' => 'required',
-            'headcount' => 'required|integer',
+            'headcount' => 'required|integer|min:1',
         ];
     }
 
@@ -34,9 +36,31 @@ class BookRequest extends FormRequest
     {
         return [
             'date.required' => '予約日を入力してください',
-            'headcount.integer' => '人数を入力してください',
+            'headcount.integer' => '人数は数字で入力してください',
             'time.required' => '予約時間を入力してください',
-            'headcount.required' => '人数を入力してください'
+            'headcount.required' => '人数を入力してください',
+            'headcount.min' => ':min人以上を指定してください',
         ];
+    }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            $date = $this->input('date');
+            $time = $this->input('time');
+
+            if ($date && $time) {
+                try {
+                    $inputDateTime = Carbon::createFromFormat('Y-m-d H:i', $date . ' ' . $time);
+                    $now = Carbon::now();
+
+                    if ($inputDateTime->lt($now)) {
+                        $validator->errors()->add('date', '過去の日時は指定できません');
+                    }
+                } catch (\Exception $e) {
+                    $validator->errors()->add('date', '日時の形式が不正です');
+                }
+            }
+        });
     }
 }
