@@ -58,8 +58,10 @@
                 @enderror
                 </span>
                 <select class="booking__headcount" id="input-headcount" name="headcount">
-                    <option value="" selected disabled>人数を選択してください</option>
-                    @for ($i = 1; $i <= 10; $i++)
+                    <option value="" selected disabled>
+                        人数を選択してください
+                    </option>
+                    @for ($i = $minHeadcount; $i <= $maxHeadcount; $i++)
                         <option value="{{ $i }}">
                             {{ $i }} 人
                         </option>
