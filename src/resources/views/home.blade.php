@@ -60,7 +60,7 @@
             </div>
             <div class="shop__button">
                 <div class="button__detail">
-                    <a href="/detail/{{$shop->id}}">詳しく見る</a>
+                    <a href="{{ route('shop.detail', ['id' => $shop->id]) }}">詳しく見る</a>
                 </div>
                 <div class="button__favorite">
                     <form method="post" action="{{ route('favorite.toggle') }}">

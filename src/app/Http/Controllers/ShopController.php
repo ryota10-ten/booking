@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
-use App\Models\Area;
 use App\Models\Booking;
-use App\Models\Genre;
 use App\Models\Restaurant;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
@@ -16,7 +13,9 @@ class ShopController extends Controller
     public function show($id)
     {
         $shop = Restaurant::with('area','genre')->find($id);
-        return view ('detail',compact('shop'));
+        $minHeadcount = config('constants.min_headcount');
+        $maxHeadcount = config('constants.max_headcount');
+        return view ('detail',compact('shop','minHeadcount', 'maxHeadcount'));
     }
 
     public function form(BookRequest $request)
