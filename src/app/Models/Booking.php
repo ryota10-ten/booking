@@ -18,6 +18,8 @@ class Booking extends Model
         'headcount',
     ];
 
+    public const QR_CODE_SIZE = 200;
+
     public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);

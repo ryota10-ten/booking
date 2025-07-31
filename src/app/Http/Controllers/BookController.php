@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BookRequest;
 use App\Models\Booking;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class BookController extends Controller
@@ -14,7 +13,7 @@ class BookController extends Controller
     {
         $booking = Booking::with('restaurant','user')->find($id);
         $url = route('booking.detail', ['id' => $booking->id]);
-        $qr = QrCode::size(200)->generate($url);
+        $qr = QrCode::size(Booking::QR_CODE_SIZE)->generate($url);
         return view ('booking_confirm',compact('booking', 'qr'));
     }
 
