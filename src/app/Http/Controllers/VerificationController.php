@@ -19,7 +19,7 @@ class VerificationController extends Controller
         }
         $user->markEmailAsVerified();
         Auth::login($user);
-        return redirect('/mypage');
+        return redirect()->route('register.done');
     }
 
     public function resend(Request $request)

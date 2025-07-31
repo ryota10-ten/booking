@@ -32,6 +32,6 @@ class ShopController extends Controller
 
         Booking::create($new_booking);
 
-        return view('booking_done');
+        return redirect()->route('booking.done', ['id' => $new_booking['restaurant_id']]);
     }
 }

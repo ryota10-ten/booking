@@ -19,12 +19,13 @@ use App\Http\Controllers\VerificationController;
 */
 Route::get('/',[HomeController::class,'show'])->name('home');
 Route::get('/search',[HomeController::class,'search'])->name('search');
-Route::get('/thanks',[HomeController::class, 'done'])->name('booking.done');
+Route::get('/done/{id}', [HomeController::class, 'done'])->name('booking.done');
 
 Route::post('/favorite/toggle', [FavoriteController::class, 'toggle'])->name('favorite.toggle');
 
 Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+Route::get('/thanks', [RegisterController::class, 'thanks'])->name('register.done');
 
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
