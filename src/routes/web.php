@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -40,3 +41,7 @@ Route::delete('/booking/delete', [MyPageController::class, 'destroy'])->name('bo
 
 Route::get('/detail/{id}',[ShopController::class, 'show'])->name('shop.detail');
 Route::post('/booking/form',[ShopController::class, 'form'])->name('booking.store');
+
+Route::get('/booking/detail/{id}',[BookController::class, 'show'])->name('booking.detail');
+Route::get('/booking/edit/{id}',[BookController::class, 'edit'])->name('booking.edit');
+Route::post('/booking/edit/{id}', [BookController::class, 'change'])->name('booking.change');
