@@ -8,6 +8,7 @@ use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\VerificationController;
+use App\Http\Controllers\ReviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,3 +46,6 @@ Route::post('/booking/form',[ShopController::class, 'form'])->name('booking.stor
 Route::get('/booking/detail/{id}',[BookController::class, 'show'])->name('booking.detail');
 Route::get('/booking/edit/{id}',[BookController::class, 'edit'])->name('booking.edit');
 Route::post('/booking/edit/{id}', [BookController::class, 'change'])->name('booking.change');
+
+Route::get('/review/{id}',[ReviewController::class, 'show'])->name('restaurant.review');
+Route::post('/review/{id}',[ReviewController::class, 'review'])->name('form.review');

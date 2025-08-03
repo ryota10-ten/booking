@@ -7,18 +7,16 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Booking extends Model
+class Review extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
         'restaurant_id',
-        'book_at',
-        'headcount',
+        'review',
+        'comment',
     ];
-
-    public const QR_CODE_SIZE = 200;
 
     public function restaurant()
     {
