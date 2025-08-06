@@ -18,7 +18,7 @@ class ReviewController extends Controller
 
     public function review(Request $request, $id)
     {
-        $review = Review::create([
+        Review::create([
             'user_id' => $request->input('user_id'),
             'restaurant_id' => $id,
             'review' => $request->input('review'),

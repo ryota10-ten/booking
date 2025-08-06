@@ -2,11 +2,11 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-use App\Models\Booking;
 use App\Mail\ReservationReminderMail;
-use Illuminate\Support\Facades\Mail;
+use App\Models\Booking;
 use Carbon\Carbon;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
 
 class SendEmails extends Command
 {
@@ -43,11 +43,11 @@ class SendEmails extends Command
     {
         $today = Carbon::today();
         // 本番
-        // $bookings = Booking::with('user', 'restaurant')
-        //     ->whereDate('book_at', $today)
-        //     ->get();
-        // テスト
-        $bookings = Booking::with('user', 'restaurant')->get();
+        $bookings = Booking::with('user', 'restaurant')
+            ->whereDate('book_at', $today)
+            ->get();
+        // // テスト
+        // $bookings = Booking::with('user', 'restaurant')->get();
         foreach ($bookings as $booking) {
             Mail::to($booking->user->email)->send(new ReservationReminderMail($booking));
         }
