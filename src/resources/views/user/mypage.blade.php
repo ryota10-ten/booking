@@ -83,11 +83,19 @@
                         </table>
                     </div>
                     <div class="booking__detail--link">
-                        <div class="booking__edit">
-                            <a href="{{ route('booking.detail', ['id' => $booking->id]) }}">
-                                予約の変更・詳細 >
-                            </a>
-                        </div>
+                        @if (\Carbon\Carbon::parse($booking->book_at)->isFuture())
+                            <div class="booking__edit">
+                                <a href="{{ route('booking.detail', ['id' => $booking->id]) }}">
+                                    予約の変更・詳細 >
+                                </a>
+                            </div>
+                        @else
+                            <div class="booking__review">
+                                <a href="{{ route('restaurant.review', ['id' => $booking->id]) }}">
+                                    レビューを投稿 >
+                                </a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
