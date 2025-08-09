@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
+use App\Mail\BookingReminderMail;
 use App\Models\Booking;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class BookController extends Controller
@@ -35,5 +37,14 @@ class BookController extends Controller
         $booking->save();
 
         return redirect()->route('booking.detail', ['id' => $booking->id]);
+    }
+
+    public function sendReminder($bookingId)
+    {
+        $booking = Booking::with('user', 'restaurant')->findOrFail($bookingId);
+
+        Mail::to($booking->user->email)->send(new BookingReminderMail($booking));
+
+        return back()->with('message', 'メールを送信しました');
     }
 }
