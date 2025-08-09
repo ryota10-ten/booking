@@ -46,7 +46,7 @@ class SendEmails extends Command
         $bookings = Booking::with('user', 'restaurant')
             ->whereDate('book_at', $today)
             ->get();
-        // // テスト
+        // // テスト時実行はこちらのコメントアウトを外す
         // $bookings = Booking::with('user', 'restaurant')->get();
         foreach ($bookings as $booking) {
             Mail::to($booking->user->email)->send(new ReservationReminderMail($booking));
