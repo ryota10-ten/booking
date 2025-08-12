@@ -44,9 +44,9 @@ return [
             'driver' => 'session',
             'provider' =>'admins',
         ],
-        'restaurants' => [
+        'managers' => [
             'driver' => 'session',
-            'provider' => 'restaurants'
+            'provider' => 'managers'
         ]
     ],
 
@@ -78,9 +78,9 @@ return [
             'model' => App\Models\AdminUser::class,
         ],
 
-        'restaurants' => [
+        'managers' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Restaurants::class,
+            'model' => App\Models\Manager::class,
         ],
     ],
 
@@ -112,8 +112,8 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-        'admin' => [
-            'provider' => 'admins',
+        'managers' => [
+            'provider' => 'managers',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

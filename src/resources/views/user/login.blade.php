@@ -6,7 +6,7 @@
 <div class="content__login">
     <form class="form__login" action="{{ route('login') }}" method="post">
         @csrf
-        <div class="table__title">Registration</div>
+        <div class="table__title">Login</div>
         @if ($errors->any())
             <div class="form__errors">
                 <ul>

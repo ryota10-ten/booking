@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
@@ -49,3 +50,9 @@ Route::post('/booking/edit/{id}', [BookController::class, 'change'])->name('book
 
 Route::get('/review/{id}',[ReviewController::class, 'show'])->name('restaurant.review');
 Route::post('/review/{id}',[ReviewController::class, 'review'])->name('form.review');
+
+Route::get('/admin/login', [AdminController::class, 'login_show'])->name('admin_login.show');
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin_login');
+Route::get('/manager/register', [AdminController::class, 'register_show'])->name('manager_register.show');
+Route::post('/manager/register', [AdminController::class, 'register'])->name('manager_register');
+Route::get('/admin/thanks',[AdminController::class, 'done'])->name('admin.thanks');
