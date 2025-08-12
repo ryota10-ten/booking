@@ -5,6 +5,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ShopController;
@@ -56,3 +57,13 @@ Route::post('/admin/login', [AdminController::class, 'login'])->name('admin_logi
 Route::get('/manager/register', [AdminController::class, 'register_show'])->name('manager_register.show');
 Route::post('/manager/register', [AdminController::class, 'register'])->name('manager_register');
 Route::get('/admin/thanks',[AdminController::class, 'done'])->name('admin.thanks');
+
+Route::get('/manager/login', [ManagerController::class, 'manager_login_show'])->name('manager_login.show');
+Route::post('/manager/login', [ManagerController::class, 'manager_login'])->name('manager_login');
+Route::get('/manager/mypage', [ManagerController::class, 'manager_mypage'])->name('manager_page.show');
+Route::post('manager/logout', [ManagerController::class, 'logout'])->name('manager.logout');
+Route::get('/manager/shop-all', [ManagerController::class, 'shop_all_show'])->name('shop_all_show');
+Route::get('/manager/shop-add', [ManagerController::class, 'shop_add_show'])->name('shop.add');
+Route::post('/manager/shop-add', [ManagerController::class, 'store'])->name('shop.store');
+Route::get('/manager/shop-edit/{id}', [ManagerController::class, 'shop_edit_show'])->name('shop.edit');
+Route::post('/manager/shop-edit/{id}', [ManagerController::class, 'update'])->name('shop.update');

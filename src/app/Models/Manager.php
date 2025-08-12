@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Restaurant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -22,4 +23,9 @@ class Manager extends Authenticatable
     ];
 
     protected $table = 'managers';
+
+    public function restaurants()
+    {
+        return $this->hasMany(Restaurant::class);
+    }
 }
