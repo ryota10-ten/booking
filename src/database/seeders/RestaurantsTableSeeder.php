@@ -21,6 +21,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/sushi.jpg',
                 'area_id' => 13,
                 'genre_id' => 1,
+                'manager_id' => 1,
             ],
             [
                 'name' => '牛助',
@@ -28,6 +29,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/yakiniku.jpg',
                 'area_id' => 27,
                 'genre_id' => 2,
+                'manager_id' => 2,
             ],
             [
                 'name' => '戦慄',
@@ -35,6 +37,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/izakaya.jpg',
                 'area_id' => 40,
                 'genre_id' => 3,
+                'manager_id' => 3,
             ],
             [
                 'name' => 'ルーク',
@@ -42,6 +45,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/italian.jpg',
                 'area_id' => 13,
                 'genre_id' => 4,
+                'manager_id' => 4,
             ],
             [
                 'name' => '志摩屋',
@@ -49,6 +53,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/ramen.jpg',
                 'area_id' => 40,
                 'genre_id' => 5,
+                'manager_id' => 5,
             ],
             [
                 'name' => '香',
@@ -56,6 +61,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/yakiniku.jpg',
                 'area_id' => 13,
                 'genre_id' => 2,
+                'manager_id' => 6,
             ],
             [
                 'name' => 'JJ',
@@ -63,6 +69,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/italian.jpg',
                 'area_id' => 27,
                 'genre_id' => 4,
+                'manager_id' => 7,
             ],
             [
                 'name' => 'らーめん極み',
@@ -70,6 +77,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/ramen.jpg',
                 'area_id' => 13,
                 'genre_id' => 5,
+                'manager_id' => 8,
             ],
             [
                 'name' => '鳥雨',
@@ -77,6 +85,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/izakaya.jpg',
                 'area_id' => 27,
                 'genre_id' => 3,
+                'manager_id' => 9,
             ],
             [
                 'name' => '築地色合',
@@ -84,6 +93,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/sushi.jpg',
                 'area_id' => 13,
                 'genre_id' => 1,
+                'manager_id' => 10,
             ],
             [
                 'name' => '晴海',
@@ -91,6 +101,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/yakiniku.jpg',
                 'area_id' => 27,
                 'genre_id' => 2,
+                'manager_id' => 11,
             ],
             [
                 'name' => '三子',
@@ -98,6 +109,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/yakiniku.jpg',
                 'area_id' => 40,
                 'genre_id' => 2,
+                'manager_id' => 12,
             ],
             [
                 'name' => '八戒',
@@ -105,6 +117,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/izakaya.jpg',
                 'area_id' => 13,
                 'genre_id' => 3,
+                'manager_id' => 13,
             ],
             [
                 'name' => '福助',
@@ -112,6 +125,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/sushi.jpg',
                 'area_id' => 27,
                 'genre_id' => 1,
+                'manager_id' => 14,
             ],
             [
                 'name' => 'ラー北',
@@ -119,6 +133,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/ramen.jpg',
                 'area_id' => 13,
                 'genre_id' => 5,
+                'manager_id' => 15,
             ],
             [
                 'name' => '翔',
@@ -126,6 +141,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/izakaya.jpg',
                 'area_id' => 27,
                 'genre_id' => 3,
+                'manager_id' => 16,
             ],
             [
                 'name' => '経緯',
@@ -133,6 +149,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'public/img/sushi.jpg',
                 'area_id' => 13,
                 'genre_id' => 1,
+                'manager_id' => 17,
             ],
             [
                 'name' => '漆',
@@ -140,6 +157,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/yakiniku.jpg',
                 'area_id' => 13,
                 'genre_id' => 2,
+                'manager_id' => 18,
             ],
             [
                 'name' => 'THE TOOL',
@@ -147,6 +165,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/italian.jpg',
                 'area_id' => 40,
                 'genre_id' => 4,
+                'manager_id' => 19,
             ],
             [
                 'name' => '木船',
@@ -154,6 +173,7 @@ class RestaurantsTableSeeder extends Seeder
                 'img_url' => 'img/sushi.jpg',
                 'area_id' => 27,
                 'genre_id' => 1,
+                'manager_id' => 20,
             ],
         ];
 
