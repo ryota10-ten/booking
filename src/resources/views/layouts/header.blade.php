@@ -32,19 +32,28 @@
     <nav id="js-nav" class="header__nav" hidden>
         <ul class="nav__items">
             <li class="nav__items--item"><a href="/">Home</a></li>
-            @guest
-                <li class="nav__items--item"><a href="/register">Registration</a></li>
-                <li class="nav__items--item"><a href="/login">Login</a></li>
-            @endguest
-            @auth
-                <li class="nav__items--item"><a href="/mypage">MyPage</a></li>
+            @if(Auth::guard('managers')->check())
+                <li class="nav__items--item"><a href="{{ route('manager_page.show') }}">Manager Dashboard</a></li>
+                <li class="nav__items--item"><a href="{{ route('shop_all_show') }}">Shop Edit</a></li>
+                <li class="nav__items--item">
+                    <form method="POST" action="{{ route('manager.logout') }}">
+                        @csrf
+                        <button type="submit" class="logout">Logout</button>
+                    </form>
+                </li>
+            @elseif(Auth::guard('users')->check())
+                <li class="nav__items--item"><a href="{{ route('user.mypage') }}">MyPage</a></li>
                 <li class="nav__items--item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="logout">Logout</button>
                     </form>
                 </li>
-            @endauth
+            @else
+            <li class="nav__items--item"><a href="{{ route('register.show') }}">Registration</a></li>
+            <li class="nav__items--item"><a href="{{ route('login.show') }}">Login</a></li>
+            <li class="nav__items--item"><a href="{{ route('manager_login.show') }}">ManagerLogin</a></li>
+            @endif
         </ul>
     </nav>
     <div id="js-main-container" class="main-container">
