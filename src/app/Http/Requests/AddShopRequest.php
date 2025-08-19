@@ -35,14 +35,20 @@ class AddShopRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required'     => '店舗名は必須です。',
-            'area_id.required'  => '地域を選択してください。',
+            'name.required' => '店舗名は必須です。',
+            'name.string'   => '店舗名は文字列で入力してください。',
+            'name.max'      => '店舗名は:max文字以内で入力してください。',
+            'area_id.required' => '地域を選択してください。',
+            'area_id.exists'   => '選択した地域は存在しません。',
             'genre_id.required' => 'ジャンルを選択してください。',
-            'detail.required'   => '店舗概要を入力してください。',
-            'img.required'      => '画像を選択してください。',
-            'image.image'       => '画像ファイルを選択してください。',
-            'image.mimes'       => '画像は jpeg, png, jpg, gif のいずれかの形式でアップロードしてください。',
-            'image.max'         => '画像は2MB以下でアップロードしてください。',
+            'genre_id.exists'   => '選択したジャンルは存在しません。',
+            'detail.required' => '店舗概要を入力してください。',
+            'detail.string'   => '店舗概要は文字列で入力してください。',
+            'detail.max'      => '店舗概要は:max文字以内で入力してください。',
+            'image.required' => '画像を選択してください。',
+            'image.image'    => '画像ファイルを選択してください。',
+            'image.mimes'    => '画像は jpeg, png, jpg, gif のいずれかの形式でアップロードしてください。',
+            'image.max'      => '画像は:maxKB以下でアップロードしてください。',
         ];
     }
 }

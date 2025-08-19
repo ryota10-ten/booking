@@ -9,7 +9,6 @@ use App\Models\Restaurant;
 use App\Http\Requests\AddShopRequest;
 use App\Http\Requests\ManagerLoginRequest;
 use App\Http\Requests\UpdateShopRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ManagerController extends Controller
