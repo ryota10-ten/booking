@@ -1,0 +1,63 @@
+.content__add {
+    width: 100%;
+    margin: 5%
+}
+
+.content__title {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
+.add__shop {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.shop__detail {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.table__header {
+    width: 20%;
+    border: 1px solid black;
+}
+
+.table__data {
+    width: 70%;
+    border: 1px solid black;
+    padding: 3% 0;
+}
+
+.table__data input {
+    border: none;
+    width: 100%;
+}
+
+.table__data select {
+    width: 100%;
+    border: none;
+}
+
+.table__data textarea {
+    width: 100%;
+    border: none;
+}
+
+.add__button {
+    text-align: center;
+    margin: 5% 0;
+    width: 40%;
+    padding: 3% 0;
+    background-color: #385EF4;
+    color: white;
+    border: 1px solid #385EF4;
+    border-radius: 3%;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-size: 10px;
+}

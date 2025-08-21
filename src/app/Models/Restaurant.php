@@ -15,6 +15,7 @@ class Restaurant extends Model
         'img_url',
         'genre_id',
         'area_id',
+        'manager_id',
     ];
 
     public function favoredBy()
@@ -54,5 +55,10 @@ class Restaurant extends Model
             return $query->where('name', 'LIKE', '%' . $keyword . '%');
         }
         return $query;
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Restaurant::class);
     }
 }
