@@ -1,0 +1,58 @@
+.content__announcement {
+    width: 100%;
+    margin: 5%;
+}
+
+.content__title {
+    font-size: large;
+    font-weight: bold;
+    width: 70%;
+    text-align: center;
+}
+
+.message {
+    text-align: center;
+    color: red;
+    width: 70%;
+    text-align: center;
+}
+
+.announcement__form {
+    text-align: center;
+    padding: 5% 0;
+    width: 70%;
+}
+
+.form__data {
+    width: 100%;
+    padding: 2% 0;
+}
+
+.label {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.subject {
+    width: 50%;
+    border: 1px solid black;
+}
+
+.body {
+    width: 50%;
+    border: 1px solid black;
+}
+
+.button {
+    width: 30%;
+    padding: 2%;
+    background-color: #385EF4;
+    color: white;
+    border: 1px solid #385EF4;
+    border-radius: 3%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
