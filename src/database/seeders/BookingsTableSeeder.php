@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Booking;
+use App\Models\Restaurant;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
@@ -15,21 +17,29 @@ class BookingsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $dates = [
-            Carbon::now()->subDays(3),
-            Carbon::now()->subDays(1),
-            Carbon::now()->subHours(6),
-            Carbon::now()->addHours(6),
-            Carbon::now()->addDays(1),
-            Carbon::now()->addDays(3),
-        ];
+        $userCount = User::count();
+        $restaurantCount = Restaurant::count();
+        $HEADCOUNT_MIN = 1;
+        $HEADCOUNT_MAX = 6;
 
-        foreach ($dates as $date) {
+        $DATE_OFFSETS = [
+            -3,
+            -1,
+            -6/24,
+            6/24,
+            1,
+            3,
+        ];
+        $data = [];
+
+        foreach ($DATE_OFFSETS as $offset) {
+            $date = Carbon::now()->addDays(floor($offset))
+                                ->addHours(($offset - floor($offset)) * 24);
             $data[] = [
-                'user_id' => rand(1, 2),
-                'restaurant_id' => rand(1, 5),
+                'user_id' => rand(1, $userCount),
+                'restaurant_id' => rand(1, $restaurantCount),
                 'book_at' => $date,
-                'headcount' => rand(1, 6),
+                'headcount' => rand($HEADCOUNT_MIN, $HEADCOUNT_MAX),
             ];
         }
 
