@@ -9,7 +9,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
-use Symfony\Component\HttpFoundation\Response;
 
 class ShopController extends Controller
 {
@@ -44,7 +43,7 @@ class ShopController extends Controller
                     ],
                     'unit_amount' => $reservationFee,
                 ],
-                'quantity' => 1,
+                'quantity' => Booking::QUANTITY,
             ]],
             'mode' => 'payment',
             'success_url' => route('booking.done', ['id' => $booking->id]) . '?session_id={CHECKOUT_SESSION_ID}',

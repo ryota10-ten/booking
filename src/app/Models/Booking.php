@@ -22,6 +22,7 @@ class Booking extends Model
 
     public const QR_CODE_SIZE = 200;
     public const RESERVATION_FEE = 500;
+    public const QUANTITY = 1;
 
     public function restaurant()
     {
