@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
@@ -67,3 +68,6 @@ Route::get('/manager/shop-add', [ManagerController::class, 'shop_add_show'])->na
 Route::post('/manager/shop-add', [ManagerController::class, 'store'])->name('shop.store');
 Route::get('/manager/shop-edit/{id}', [ManagerController::class, 'shop_edit_show'])->name('shop.edit');
 Route::post('/manager/shop-edit/{id}', [ManagerController::class, 'update'])->name('shop.update');
+
+Route::get('/admin/announcement', [AnnouncementController::class, 'create'])->name('announcement.create');
+Route::post('/admin/announcement', [AnnouncementController::class, 'send'])->name('announcement.send');
