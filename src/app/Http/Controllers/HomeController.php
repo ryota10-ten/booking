@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Area;
+use App\Models\Booking;
 use App\Models\Genre;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
@@ -31,6 +32,7 @@ class HomeController extends Controller
 
     public function done($id)
     {
-        return view('booking_done', ['restaurant_id' => $id]);
+        $booking = Booking::findOrFail($id);
+        return view('booking_done', ['restaurant_id' => $booking->restaurant_id]);
     }
 }

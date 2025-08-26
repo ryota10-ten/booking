@@ -14,11 +14,15 @@ class Booking extends Model
     protected $fillable = [
         'user_id',
         'restaurant_id',
-        'book_at',
         'headcount',
+        'book_at',
+        'stripe_session_id',
+        'stripe_payment_intent_id',
     ];
 
     public const QR_CODE_SIZE = 200;
+    public const RESERVATION_FEE = 500;
+    public const QUANTITY = 1;
 
     public function restaurant()
     {

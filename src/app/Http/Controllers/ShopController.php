@@ -7,6 +7,8 @@ use App\Models\Booking;
 use App\Models\Restaurant;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Stripe\Checkout\Session;
+use Stripe\Stripe;
 
 class ShopController extends Controller
 {
@@ -23,15 +25,36 @@ class ShopController extends Controller
         $user = Auth::guard('users')->user();
         $bookAt = Carbon::parse($request->input('date') . ' ' . $request->input('time'));
 
-        $new_booking = [
+        $booking = Booking::create([
             'user_id' => $user->id,
             'restaurant_id' => $request->input('shop_id'),
             'headcount' => $request->input('headcount'),
             'book_at' => $bookAt,
-        ];
+        ]);
+        $reservationFee = Booking::RESERVATION_FEE;
+        Stripe::setApiKey(config('services.stripe.secret'));
+        $session = Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [[
+                'price_data' => [
+                    'currency' => 'jpy',
+                    'product_data' => [
+                        'name' => $booking->restaurant->name . ' 予約金',
+                    ],
+                    'unit_amount' => $reservationFee,
+                ],
+                'quantity' => Booking::QUANTITY,
+            ]],
+            'mode' => 'payment',
+            'success_url' => route('booking.done', ['id' => $booking->id]) . '?session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url' => route('shop.detail', ['id' => $booking->restaurant_id]),
+            'metadata' => [
+                'booking_id' => $booking->id,
+                'user_id' => $user->id,
+            ],
+        ]);
+        $booking->update(['stripe_session_id' => $session->id]);
 
-        Booking::create($new_booking);
-
-        return redirect()->route('booking.done', ['id' => $new_booking['restaurant_id']]);
+        return redirect($session->url);
     }
 }
