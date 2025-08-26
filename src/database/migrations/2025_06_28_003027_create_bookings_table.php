@@ -19,6 +19,8 @@ class CreateBookingsTable extends Migration
             $table->foreignId('restaurant_id')->constrained()->cascadeOnDelete();
             $table->dateTime('book_at');
             $table->integer('headcount');
+            $table->string('stripe_session_id')->nullable();
+            $table->string('stripe_payment_intent_id')->nullable();
             $table->timestamps();
         });
     }

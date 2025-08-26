@@ -30,5 +30,10 @@
 ./binlog.000039
 ./binlog.000040
 ./binlog.000041
+<<<<<<< HEAD
 ./binlog.000044
 ./binlog.000045
+=======
+./binlog.000042
+./binlog.000043
+>>>>>>> b557b999924aea36f4330ff2018b63ede2291596
