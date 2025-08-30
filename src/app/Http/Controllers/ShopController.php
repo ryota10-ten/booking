@@ -5,11 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BookRequest;
 use App\Models\Booking;
 use App\Models\Restaurant;
+use App\Services\StripeService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
+    protected $stripeService;
+    
+    public function __construct(StripeService $stripeService)
+    {
+        $this->stripeService = $stripeService;
+    }
+
     public function show($id)
     {
         $shop = Restaurant::with('area','genre')->find($id);
@@ -23,15 +31,17 @@ class ShopController extends Controller
         $user = Auth::guard('users')->user();
         $bookAt = Carbon::parse($request->input('date') . ' ' . $request->input('time'));
 
-        $new_booking = [
+        $booking = Booking::create([
             'user_id' => $user->id,
             'restaurant_id' => $request->input('shop_id'),
             'headcount' => $request->input('headcount'),
             'book_at' => $bookAt,
-        ];
+        ]);
+        $booking->load('restaurant');
 
-        Booking::create($new_booking);
+        $session = $this->stripeService->createSession($booking);
+        $booking->update(['stripe_session_id' => $session->id]);
 
-        return redirect()->route('booking.done', ['id' => $new_booking['restaurant_id']]);
+        return redirect()->to($session->url);
     }
 }

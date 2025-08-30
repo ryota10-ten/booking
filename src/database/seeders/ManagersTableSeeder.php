@@ -14,11 +14,11 @@ class ManagersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $restaurantIds = Restaurant::pluck('id');
-        foreach ($restaurantIds as $id) {
+        for ($i = 1; $i <= 20; $i++) {
             Manager::create([
-                'name' => 'Manager ' . $id,
-                'email' => 'manager' . $id . '@example.com',
+                'id' => $i,
+                'name' => 'Manager ' . $i,
+                'email' => 'manager' . $i . '@example.com',
                 'password' => Hash::make('testtest'),
             ]);
         }
