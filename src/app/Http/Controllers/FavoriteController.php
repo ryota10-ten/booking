@@ -23,5 +23,4 @@ class FavoriteController extends Controller
 
         return redirect()->back();
     }
-
 }
