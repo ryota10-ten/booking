@@ -1,0 +1,85 @@
+.content {
+    width: 100%;
+    margin: 10% auto;
+}
+
+.content__register {
+    margin: 0 auto;
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 1px 1px 3px #9C9C9C;
+}
+
+.table {
+    width: 90%;
+    margin: 10px 10px;
+}
+
+.table__title {
+    background-color: #385EF4;
+    border-radius: 9px 9px 0 0;
+    color: white;
+    padding: 10px 0px;
+    padding-left: 20px;
+    font-size: 24px;
+}
+
+.title__text {
+    padding: 10px 0px;
+    padding-left: 20px;
+}
+
+.table__row {
+    line-height: 24px;
+}
+
+.table__icon {
+    width: 10%;
+    color: #909090;
+}
+
+.table__data {
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.register__info {
+    color:black;
+    border: none;
+    outline: none;
+    width: 100%;
+    background-color: transparent;
+}
+
+input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: #000 !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.register__info::placeholder {
+    color: #aaa;
+}
+
+.button {
+    text-align: right;
+    margin: 5% 7%;
+}
+
+.button__register {
+    background-color: #385EF4;
+    color: white;
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 1% 5%;
+}
+
+.form__errors {
+    color: red;
+    font-size: 10px;
+}
