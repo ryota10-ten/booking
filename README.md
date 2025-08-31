@@ -68,6 +68,7 @@
     (2) Laravel の設定
     STRIPE_KEY=pk_test_xxxxxxxxxxxxxxxxxxxxx
     STRIPE_SECRET=sk_test_xxxxxxxxxxxxxxxxxxxxx
+    STRIPE_WEBHOOK_SECRET=xxxxxxxxxxxxxxxxxxxxx
         STRIPE_KEY には 公開可能キー（Publishable Key）
         STRIPE_SECRET には 秘密キー（Secret Key） を設定してください。
     (3) Stripe のテストモードでの動作確認
