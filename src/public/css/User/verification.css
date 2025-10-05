@@ -24,6 +24,10 @@
     color: white;
 }
 
+a:visited {
+    color: white;
+}
+
 .send__link {
     text-align: center;
     margin: 30px auto;
