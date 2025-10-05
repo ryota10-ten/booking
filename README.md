@@ -109,5 +109,8 @@
         php artisan migrate --env=testing
     テストの実行
         vendor/bin/phpunit tests/Feature/
+#ER図
+<img width="686" height="511" alt="スクリーンショット 2025-08-31 15 17 49" src="https://github.com/user-attachments/assets/55b71d0c-b8c6-47a9-a197-fdf816a74530" />
+
     
 
