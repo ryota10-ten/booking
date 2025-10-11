@@ -21,6 +21,13 @@ class AdminController extends Controller
         return redirect()->route('manager_register.show');
     }
 
+    public function logout()
+    {
+        Auth::guard('admins')->logout();
+
+        return redirect()->route('admin_login.show');
+    }
+
     public function register_show()
     {
         return view('admin.register');

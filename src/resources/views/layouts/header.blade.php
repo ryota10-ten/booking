@@ -49,6 +49,15 @@
                         <button type="submit" class="logout">Logout</button>
                     </form>
                 </li>
+            @elseif(Auth::guard('admins')->check())
+                <li class="nav__items--item"><a href="{{ route('manager_register.show') }}">ManagerRegister</a></li>
+                <li class="nav__items--item"><a href="{{ route('announcement.create') }}">Announcement</a></li>
+                <li class="nav__items--item">
+                    <form method="POST" action="{{ route('admin.logout') }}">
+                        @csrf
+                        <button type="submit" class="logout">Logout</button>
+                    </form>
+                </li>
             @else
             <li class="nav__items--item"><a href="{{ route('register.show') }}">Registration</a></li>
             <li class="nav__items--item"><a href="{{ route('login.show') }}">Login</a></li>
