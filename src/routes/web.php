@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:admins'])->group(function () {
     Route::get('/manager/register', [AdminController::class, 'register_show'])->name('manager_register.show');
     Route::post('/manager/register', [AdminController::class, 'register'])->name('manager_register');
+    Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
     Route::get('/admin/thanks',[AdminController::class, 'done'])->name('admin.thanks');
     Route::get('/admin/announcement', [AnnouncementController::class, 'create'])->name('announcement.create');
     Route::post('/admin/announcement', [AnnouncementController::class, 'send'])->name('announcement.send');
